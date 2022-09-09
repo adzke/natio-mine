@@ -1,8 +1,8 @@
 import { rvAuthorisedUser, rvUserAuthenticated } from "../state/login-state";
 import { AuthorisationToken, AuthorisedUser } from "../state/login-types";
 import { rvAlertProps, rvShowAlert } from "../state/alert-state"
-import { rvCurrentExperience, rvProfile } from "../state/profile-state";
-import { Experience, Profile } from "../state/profile-types";
+import { rvProfile } from "../state/profile-state";
+import { Profile } from "../state/profile-types";
 import { AlertTypes } from "../state/alert-types";
 
 const loginAPI = 'http://127.0.0.1:8000/api/auth/login'
@@ -94,8 +94,8 @@ export const gainExperience = async (jwtToken: AuthorisationToken) => {
         }
 
         // 👇️ const result: CreateUserResponse
-        const result = (await response.json()) as Experience;
-        rvCurrentExperience(result)
+        const result = (await response.json()) as Profile;
+        rvProfile(result)
         return result
     }
     catch (error) {

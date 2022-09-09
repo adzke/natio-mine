@@ -1,8 +1,9 @@
 import { useReactiveVar } from '@apollo/client'
-import React, { Component, useState, useEffect } from 'react'
+import { useState } from 'react'
 import { gainExperience } from '../api-functions/api-call'
+import GoldBar from '../images/gold-bar'
 import { rvAuthorisedUser } from '../state/login-state'
-import { rvCurrentExperience, rvOperationInProgress, rvProfile } from '../state/profile-state'
+import { rvOperationInProgress, rvProfile } from '../state/profile-state'
 import SvgComponent from './image'
 
 
@@ -10,7 +11,6 @@ export const GameArea = () => {
   const [run, setRun] = useState<boolean>(true)
   const authorisedUser = useReactiveVar(rvAuthorisedUser)
   const operatingInProgress = useReactiveVar(rvOperationInProgress)
-  const experience = useReactiveVar(rvCurrentExperience)
   const profile = useReactiveVar(rvProfile)
 
 
@@ -33,12 +33,18 @@ export const GameArea = () => {
 
   return (
     <div>
+      <div className="gold_bar"> 
+        <GoldBar/>
+        <p>
+          {profile.gold.toString()}
+        </p>
+      </div>
       <div>
           <p>{profile?.username}</p>
       </div>
       <div>
         <h2>
-          {`XP: ${experience?.experience.toString()}`}
+          {`XP: ${profile?.experience.toString()}`}
         </h2>
       </div>
       <div className={run ? 'gelatine' : 'pulse'} onClick={startMining}>
