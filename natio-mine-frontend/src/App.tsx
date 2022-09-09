@@ -2,7 +2,7 @@ import './App.css';
 import { Login } from './components/login';
 import Alert from '@mui/material/Alert';
 import { useReactiveVar } from "@apollo/client";
-import { rvShowAlert, rvAlertText } from './state/alert-state'
+import { rvAlertProps, rvShowAlert } from './state/alert-state'
 import { rvUserAuthenticated } from './state/login-state';
 import { GameArea } from './components/game-area';
 
@@ -10,18 +10,18 @@ import { GameArea } from './components/game-area';
 function App() {
 
   const showAlert = useReactiveVar(rvShowAlert)
-  const alertText = useReactiveVar(rvAlertText)
+  const alertProps = useReactiveVar(rvAlertProps)
   const userAuthenticated = useReactiveVar(rvUserAuthenticated)
 
   const closeAlert = () => {
     rvShowAlert(false)
-    rvAlertText('')
+    rvAlertProps({alertMessage: ''})
   }
   return (
     <div className="App">
       <div className='alertHolder'>
         {showAlert ?
-          <Alert onClose={() => { closeAlert() }} severity="error">{alertText}</Alert>
+          <Alert onClose={() => { closeAlert() }} severity={alertProps?.alertType}>{alertProps?.alertMessage}</Alert>
           :
           null
         }

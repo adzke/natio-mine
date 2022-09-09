@@ -62,10 +62,18 @@
   position: absolute;
 }
 
+.pulse {
+  animation: pulse 1s infinite ease-in-out alternate;
+}
+@keyframes pulse {
+  from { transform: scale(0.8); }
+  to { transform: scale(1.2); }
+}
+
 
 .gelatine:hover {
   animation: gelatine 0.5s infinite;
-  background-color: pink;
+  background-color: lightslategray;
   border-radius: 5px;
 }
 
