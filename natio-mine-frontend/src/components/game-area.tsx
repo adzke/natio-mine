@@ -27,6 +27,9 @@ export const GameArea = () => {
   return (
     <div>
       <div>
+          <p>{authorisedUser?.user.username}</p>
+      </div>
+      <div>
         <h2>
           {`XP: ${experience?.experience.toString()}`}
         </h2>
