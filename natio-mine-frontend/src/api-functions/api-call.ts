@@ -1,4 +1,4 @@
-import { rvAuthorisedUser } from "../state/login-state";
+import { rvAuthorisedUser, rvUserAuthenticated } from "../state/login-state";
 import { AuthorisedUser } from "../state/login-types";
 import { rvShowAlert } from "../state/alert-state"
 import { rvAlertText } from "../state/alert-state";
@@ -32,15 +32,15 @@ export const getAuthToken = async (username: string, password: string) => {
         // 👇️ const result: CreateUserResponse
         const result = (await response.json()) as AuthorisedUser;
         rvAuthorisedUser(result)
-        rvAlertText(result.token)
-        rvShowAlert(true)
+        rvUserAuthenticated(true)
         return result
     }
     catch (error) {
         if (error instanceof Error) {
 
             console.log('error message: ', error.message);
-
+            rvShowAlert(true)
+            rvAlertText(error.message)
             return {
                 errorMessage: error.message,
                 postSucessful: false

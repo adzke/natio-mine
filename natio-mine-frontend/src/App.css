@@ -27,6 +27,10 @@
 .App-link {
   color: #61dafb;
 }
+.imageContainer {
+  width: 100px;
+  height: 100px;
+}
 
 .login-box {
   padding: 20px;
@@ -58,11 +62,20 @@
   position: absolute;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+.gelatine:hover {
+  animation: gelatine 0.5s infinite;
+  background-color: pink;
+  border-radius: 5px;
 }
+
+.gelatine {
+  animation: gelatine 0.5s infinite;
+}
+@keyframes gelatine {
+  from, to { transform: scale(1, 1); }
+  25% { transform: scale(0.9, 1.1); }
+  50% { transform: scale(1.1, 0.9); }
+  75% { transform: scale(0.95, 1.05); }
+}
+

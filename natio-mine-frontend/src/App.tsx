@@ -3,12 +3,15 @@ import { Login } from './components/login';
 import Alert from '@mui/material/Alert';
 import { useReactiveVar } from "@apollo/client";
 import { rvShowAlert, rvAlertText } from './state/alert-state'
+import { rvUserAuthenticated } from './state/login-state';
+import { GameArea } from './components/game-area';
 
 
 function App() {
 
   const showAlert = useReactiveVar(rvShowAlert)
   const alertText = useReactiveVar(rvAlertText)
+  const userAuthenticated = useReactiveVar(rvUserAuthenticated)
 
   const closeAlert = () => {
     rvShowAlert(false)
@@ -24,7 +27,12 @@ function App() {
         }
       </div>
       <header className="App-header">
-        <Login />
+        {userAuthenticated ?
+        <GameArea/>
+        :
+          <Login />
+        }
+
       </header>
     </div>
   );
