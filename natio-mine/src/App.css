@@ -14,7 +14,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #CC4A16;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -26,6 +26,32 @@
 
 .App-link {
   color: #61dafb;
+}
+
+.login-box {
+  padding: 20px;
+  display: flex;
+  background-color: white;
+  flex-direction: column;
+  min-width: 330px;
+  min-height: 250px;
+  align-items: center;
+  justify-content: center;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+}
+.textFieldContainer {
+ margin: 5px;
+}
+#standard-basic {
+  width: 300px;
+
+}
+.buttonContainer {
+  margin-top: 50px;
+}
+.loginButton {
+  width: 300px;
 }
 
 @keyframes App-logo-spin {
