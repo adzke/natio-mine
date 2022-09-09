@@ -42,7 +42,7 @@ export const Login = () => {
                 }} id="standard-basic" label="Password" variant="standard" />
             </div>
             <div className='buttonContainer'>
-                <Button onClick={submitForm} sx={{ backgroundColor: '#555555' }} className='loginButton' variant="contained">Login</Button>
+                <Button onClick={submitForm} sx={{ backgroundColor: '#555555', ":hover": {backgroundColor: '#7D7D7D'} }} className='loginButton' variant="contained">Login</Button>
             </div>
 
         </div>

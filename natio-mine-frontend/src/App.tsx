@@ -1,8 +1,8 @@
 import './App.css';
-import { Login } from './components/login.jsx';
+import { Login } from './components/login';
 import Alert from '@mui/material/Alert';
 import { useReactiveVar } from "@apollo/client";
-import { rvShowAlert, rvAlertText } from './state/alert-state.ts'
+import { rvShowAlert, rvAlertText } from './state/alert-state'
 
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
 
   const closeAlert = () => {
     rvShowAlert(false)
-    rvShowAlert('')
+    rvAlertText('')
   }
   return (
     <div className="App">
