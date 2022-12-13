@@ -5,6 +5,7 @@ import { useReactiveVar } from "@apollo/client";
 import { rvAlertProps, rvShowAlert } from './state/alert-state'
 import { rvUserAuthenticated } from './state/login-state';
 import { GameArea } from './components/game-area';
+import { GameGrid } from './components/game-grid';
 
 
 function App() {
@@ -15,7 +16,7 @@ function App() {
 
   const closeAlert = () => {
     rvShowAlert(false)
-    rvAlertProps({alertMessage: ''})
+    rvAlertProps({ alertMessage: '' })
   }
   return (
     <div className="App">
@@ -28,8 +29,8 @@ function App() {
       </div>
       <header className="App-header">
         {userAuthenticated ?
-        <GameArea/>
-        :
+          <GameGrid />
+          :
           <Login />
         }
 

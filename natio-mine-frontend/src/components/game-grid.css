@@ -1,0 +1,68 @@
+.grid-container {
+  display: grid;
+  background-color: #3c3c3c;
+  grid-template-columns: auto auto auto auto auto;
+  padding: 5px;
+}
+.grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 2px solid rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  width: 75px;
+  height: 75px;
+  text-align: center;
+  position: relative;
+}
+.grid-item:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 2px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    width: 75px;
+    height: 75px;
+    text-align: center;
+    position: relative;
+    opacity: 0.9;
+  }
+.img-style {
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
+.value-container {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    opacity: 0.9;
+}
+
+.reroll-button{
+    width: 100px;
+    height: 50px;
+    margin: 20px;
+    background-color: palegoldenrod;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.img-style[wobble='1']{
+    animation: wobble 1s 1;
+  }
+  
+  @keyframes wobble {
+    25% {
+      transform: rotate(15deg);
+    }
+    50% {
+      transform: rotate(-30deg);
+    }
+    75% {
+      transform: rotate(5deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+  
